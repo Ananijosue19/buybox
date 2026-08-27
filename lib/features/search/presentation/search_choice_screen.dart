@@ -1,8 +1,8 @@
-import 'package:buybox/common/color.dart';
 import 'package:flutter/material.dart';
+import '../../../core/theme/app_colors.dart';
 
-class Recherchechoix extends StatelessWidget {
-  const Recherchechoix({super.key});
+class SearchChoiceScreen extends StatelessWidget {
+  const SearchChoiceScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +11,7 @@ class Recherchechoix extends StatelessWidget {
         slivers: <Widget>[
           const SliverAppBar(
             backgroundColor: greenColor,
-            actions: [
-              Text("data")
-            ],
+            actions: [Text('data')],
             pinned: true,
             expandedHeight: 250.0,
             flexibleSpace: FlexibleSpaceBar(
@@ -29,7 +27,7 @@ class Recherchechoix extends StatelessWidget {
               childAspectRatio: 4.0,
             ),
             delegate: SliverChildBuilderDelegate(
-                  (BuildContext context, int index) {
+              (BuildContext context, int index) {
                 return Container(
                   alignment: Alignment.center,
                   color: Colors.teal[100 * (index % 9)],
@@ -42,7 +40,7 @@ class Recherchechoix extends StatelessWidget {
           SliverFixedExtentList(
             itemExtent: 50.0,
             delegate: SliverChildBuilderDelegate(
-                  (BuildContext context, int index) {
+              (BuildContext context, int index) {
                 return Container(
                   alignment: Alignment.center,
                   color: Colors.lightBlue[100 * (index % 9)],
@@ -52,7 +50,7 @@ class Recherchechoix extends StatelessWidget {
             ),
           ),
         ],
-      )
+      ),
     );
   }
 }

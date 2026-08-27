@@ -1,10 +1,16 @@
-import 'package:buybox/view/home/categorieIndex.dart';
-import 'package:buybox/view/home/home.dart';
-import 'package:buybox/view/home/rechercheChoix.dart';
-import 'package:buybox/view/home/register.dart';
-import 'package:buybox/view/home/signIn.dart';
-import 'package:buybox/view/onBoarding/onBoarding.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'core/theme/app_theme.dart';
+import 'features/auth/presentation/register_screen.dart';
+import 'features/auth/presentation/sign_in_screen.dart';
+import 'features/category/presentation/category_index_screen.dart';
+import 'features/home/presentation/home_screen.dart';
+import 'features/onboarding/presentation/onboarding_screen.dart';
+import 'features/search/presentation/search_choice_screen.dart';
+import 'features/shop/data/repositories/mock_category_repository.dart';
+import 'features/shop/data/repositories/mock_product_repository.dart';
+import 'features/shop/presentation/providers/cart_provider.dart';
+import 'features/shop/presentation/providers/shop_provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,20 +19,31 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-      routes: {
-    '/signIn':(context) =>const SignIn(),
-        '/register':(context)=>const Register(),
-        '/home':(context)=>const Home(),
-        '/Categorieindex':(context)=>const Categorieindex(),
-        '/Recherchechoix':(context)=>const Recherchechoix(),
-
-    },
-      debugShowCheckedModeBanner: false,
-      home:  Onboarding(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CartProvider()),
+        ChangeNotifierProvider(
+          create: (_) => ShopProvider(
+            productRepository: MockProductRepository(),
+            categoryRepository: MockCategoryRepository(),
+          )..loadShopData(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'BuyBox',
+        theme: AppTheme.lightTheme,
+        routes: {
+          '/signIn': (context) => const SignInScreen(),
+          '/register': (context) => const RegisterScreen(),
+          '/home': (context) => const HomeScreen(),
+          '/category_index': (context) => const CategoryIndexScreen(),
+          '/search_choice': (context) => const SearchChoiceScreen(),
+        },
+        debugShowCheckedModeBanner: false,
+        home: const OnboardingScreen(),
+      ),
     );
   }
 }
