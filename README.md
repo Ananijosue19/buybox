@@ -2,7 +2,7 @@
 
 BuyBox is a modern, high-quality Flutter e-commerce application designed to demonstrate professional development standards, including clean architecture, robust state management, and idiomatic Dart code.
 
-## 🚀 Features
+## Features
 
 - **Onboarding Flow**: Smooth introduction to the app's value proposition.
 - **Authentication**: Modern Sign In and Register screens.
@@ -11,7 +11,7 @@ BuyBox is a modern, high-quality Flutter e-commerce application designed to demo
 - **Shopping Cart**: Real-time state management for cart operations.
 - **Responsive UI**: Built with a "Feature-first" approach for scalability.
 
-## 🏗️ Architecture
+## Architecture
 
 The project follows a **Feature-First Clean Architecture**:
 
@@ -21,7 +21,7 @@ The project follows a **Feature-First Clean Architecture**:
   - **`data/`**: Repository implementations and data sources (API/Mock).
   - **`presentation/`**: UI components (Screens & Widgets) and State Management (Providers).
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Flutter SDK**: `3.24.3` (managed via FVM)
 - **State Management**: [Provider](https://pub.dev/packages/provider)
@@ -29,7 +29,7 @@ The project follows a **Feature-First Clean Architecture**:
 - **Icons**: FontAwesome & Cupertino Icons
 - **UI Components**: Carousel Slider, Smooth Page Indicator
 
-## 📦 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -40,7 +40,7 @@ The project follows a **Feature-First Clean Architecture**:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/buybox.git
+   git clone https://github.com/Ananijosue19/buybox.git
    ```
 2. Navigate to the project directory:
    ```bash
@@ -55,7 +55,7 @@ The project follows a **Feature-First Clean Architecture**:
    fvm flutter run
    ```
 
-## 🧪 Testing
+## Testing
 
 The project is structured to be easily testable. You can run the tests using:
 ```bash
